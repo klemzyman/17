@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Number guessing game</h2>
+    
+    {{message}}
+    
+    {% if game %}
+        <h4>Guess {{current_try}} / 5</h4>
+        <form method="post" action="/game">
+            <input type="number" name="user_guess" min="1" max="20">
+            <button type="submit">Guess</button>
+        </form>
+    {% else %}
+        <p><a href="/game">Would you like to play again?</a>
+    {% endif %}
+{% endblock content %}
